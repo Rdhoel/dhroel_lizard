@@ -3,12 +3,12 @@
 #pragma once
 
 #include <hge.h>
+#include "bonus.h"
 #include <hgevector.h>
 #include <hgeanim.h>
-
+extern int hp;
 #define HP_BONUS_FRICTION 0.95
-
-class hp_bonus
+class hp_bonus: public bonus
 {
 private:
 	static HGE*		hge;
@@ -26,6 +26,7 @@ private:
 public:
 	hp_bonus(hgeVector Position, hgeVector Velocity, HTEXTURE &Texture);
 	~hp_bonus();
+	void Bonus(){hp=hp+10;};
 
 	bool Update(float delta);
 	void Render();
