@@ -18,8 +18,9 @@ private:
 	hgeAnimation*	Sprite;
 	hgeRect			BoundingBox;
 	float			Speed;
+
 public:
-	player(hgeVector Position, hgeVector Velocity/*,HTEXTURE &Texture*/);
+	player(hgeVector Position, hgeVector Velocity, int level/*,HTEXTURE &Texture*/);
 	~player();
 
 	bool Update(float delta);
