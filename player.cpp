@@ -1,14 +1,41 @@
 #include "player.h"
 HGE* player::hge = 0;
-player::player(hgeVector position, hgeVector velocity/*,HTEXTURE &Texture*/) : Position(position), Velocity(velocity)
+player::player(hgeVector position, hgeVector velocity,int level/*,HTEXTURE &Texture*/) : Position(position), Velocity(velocity)
 {
 	hge = hgeCreate(HGE_VERSION);
 	Texture = hge->Texture_Create(58, 77);
-	Texture = hge->Texture_Load("images/main_9.png");
-	Sprite=new hgeAnimation(Texture,4,4,0,0,58,77);
+   if (level==1)
+	{
+		Texture = hge->Texture_Load("images/main_lvl1_1.png");
+	    Sprite=new hgeAnimation(Texture,1,1,0,0,60,80);
+	}
+	else if(level==2)
+	{
+		Texture = hge->Texture_Load("images/main_lvl2_1.png");
+		Sprite=new hgeAnimation(Texture,1,1,0,0,65,85);
+	}
+	else if(level==3)
+	{
+		Texture = hge->Texture_Load("images/main_lvl3_1.png");
+		Sprite=new hgeAnimation(Texture,1,1,0,0,70,90);
+	}
+	else if(level==4)
+	{
+		Texture = hge->Texture_Load("images/main_boss_11.png");
+		Sprite=new hgeAnimation(Texture,1,1,0,0,75,95);
+	}
+	else if(level==5)
+	{
+		Texture = hge->Texture_Load("images/main_boss_21.png");
+		Sprite=new hgeAnimation(Texture,1,1,0,0,80,100);
+	}
+	else if(level==6)
+	{
+		Texture = hge->Texture_Load("images/main_boss_31.png");
+		Sprite=new hgeAnimation(Texture,1,1,0,0,130,95);
+	}
 	Sprite->SetHotSpot(32,14.5);
 	Sprite->Play();
-
 	Speed		= 0.2;
 }
 
