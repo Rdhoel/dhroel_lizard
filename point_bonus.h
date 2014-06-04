@@ -5,10 +5,11 @@
 #include <hge.h>
 #include <hgevector.h>
 #include <hgeanim.h>
+#include "bonus.h"
 
 #define POINT_BONUS_FRICTION 0.95
 
-class point_bonus
+class point_bonus:public bonus
 {
 private:
 	static HGE*		hge;
@@ -26,7 +27,7 @@ private:
 public:
 	point_bonus(hgeVector Position, hgeVector Velocity, HTEXTURE &Texture);
 	~point_bonus();
-
+	void Bonus(){count=count+10;}
 	bool Update(float delta);
 	void Render();
 	void		SetOscillate(bool Value) { bOscillate = Value; };
