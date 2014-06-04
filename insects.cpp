@@ -46,9 +46,9 @@ bool insects::Update(float delta)
 	}
 
 	Sprite->Update(delta);
-	
+
 	Velocity.y -= Speed;//X
-	
+
 	Sprite->GetBoundingBox(Position.x, Position.y, &BoundingBox);
 	return false;
 }
