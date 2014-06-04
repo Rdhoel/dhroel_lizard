@@ -4,7 +4,7 @@ bee::bee(hgeVector position, hgeVector velocity, HTEXTURE &Texture) : Position(p
 {
 	hge = hgeCreate(HGE_VERSION);
 
-	Sprite = new hgeAnimation(Texture, 5, 5, 0, 0, 30, 40);
+	Sprite = new hgeAnimation(Texture, 5, 5, 0, 0, 40, 50);
 
 	Sprite->SetHotSpot(20, 15);
 	Sprite->Play();
@@ -52,5 +52,7 @@ bool bee::Update(float delta)
 }
 void bee::Render()
 {
+
 	Sprite->Render(Position.x, Position.y);
+
 }
